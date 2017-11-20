@@ -90,7 +90,7 @@ provider "solace" {
   host = "192.168.56.201"
   port = 8080
   admin_user     = "admin"
-  admin_password = "admin"
+  admin_password = "secret"
 }
 
 resource "solace_msg_vpn" "test_vpn" {
@@ -139,3 +139,4 @@ resource "solace_client_username" "user_jimmy" {
 
 
 ```
+
