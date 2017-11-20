@@ -49,7 +49,7 @@ AMI Catalog:
 resource "aws_instance" "my_terraform_vmr_inst" {
   ami = "ami-1541b36f"
   instance_type = "t2.medium"
-  key_name = "koverton_key"
+  key_name = "__YOUR_KEY__"
   security_groups = [ "VMRSecGroup" ]
   tags {
     Name = "my_terraform_vmr_inst"
