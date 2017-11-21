@@ -62,8 +62,8 @@ func clientUsernameSchema() map[string]*schema.Schema {
 	}
 }
 
-// Function to populate all optional fields on a clientUsername; ideally this code should be
-// generated from the Swagger schema or generated DAO.
+// Generated from a field-list, either Swagger schema or generated GO client code.
+// Given a DAO instance, populate it with any fields found in the resource data.
 func populateClientUsernameFromResource(user *semp_client.MsgVpnClientUsername, d *schema.ResourceData) {
 	// All optional fields should only be set if present in the resource data
 	v,b := d.GetOk(ACL_PROFILE_NAME)

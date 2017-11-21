@@ -357,6 +357,8 @@ func schemaMsgVpn() map[string]*schema.Schema {
 	}
 }
 
+// Generated from a field-list, either Swagger schema or generated GO client code.
+// Given a DAO instance, populate it with any fields found in the resource data.
 func populateMsgVpnFromResource(msgVpn *semp_client.MsgVpn, d *schema.ResourceData) {
 	v,b := d.GetOk(AUTHENTICATION_BASIC_ENABLED)
 	if b {

@@ -69,8 +69,8 @@ func schemaMsgVpnBridge() map[string]*schema.Schema {
 	}
 }
 
-// Function to populate all optional fields on a msgVpnBridge; ideally this code should be
-// generated from the Swagger schema or generated DAO.
+// Generated from a field-list, either Swagger schema or generated GO client code.
+// Given a DAO instance, populate it with any fields found in the resource data.
 func populateMsgVpnBridgeFromResource(bridge *semp_client.MsgVpnBridge, d *schema.ResourceData) {
 	// All optional fields should only be set if present in the resource data
 	v,b := d.GetOk(BRIDGE_NAME)
