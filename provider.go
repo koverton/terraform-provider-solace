@@ -9,6 +9,10 @@ import (
 	"log"
 )
 
+// This is boilerplate Terraform bootstrapping code
+// Note that it totally ignores commandline args because
+// when terraform starts your provider it only passes the
+// resource definition, not any cmdline arguments.
 func main() {
 	opts := plugin.ServeOpts{
 		ProviderFunc: Provider,
@@ -16,7 +20,8 @@ func main() {
 	plugin.Serve(&opts)
 }
 
-// This is passed back into each resource
+// This is the Provider closure passed into each resource
+// CRUD function invocation
 type ProviderState struct {
 	// All SEMP resource APIs use this configuration to bind to the broker
 	sempcfg  *semp_client.Configuration
