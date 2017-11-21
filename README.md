@@ -60,6 +60,40 @@ resource "aws_instance" "my_terraform_vmr_inst" {
 Once the VMR is instantiated, the Solace Terraform Provider can provision Msg-VPNs and 
 entities inside them.
 
+## Build and Run
+
+This project uses the [Github code layout](https://github.com/golang/go/wiki/GithubCodeLayout) 
+and requires the SEMP Swagger client has been code-generated into a package named `semp_client`:
+```
+$GOPATH/
+    src/
+        github.com/
+            [GITHUBID]/
+                terraform-provider-solace/
+                    .git/
+                    provider.go
+                    ...
+                semp_client/
+                    msg_vpn_api.go
+                    ...
+```
+
+With that in place, building running the provider is as follows:
+
+```shell
+linux> make
+       go build
+linux> terraform init
+       ...
+linux> terraform plan
+       ...
+Plan: 8 to add, 0 to change, 0 to destroy.
+       ...
+linux> terraform apply
+       ...
+       Apply complete! Resources: 8 added, 0 changed, 0 destroyed.
+```
+
 ## Configuring Bridges
 
 There are some challenges you will experience with the semp_client provisioning msg-VPN bridges that 
