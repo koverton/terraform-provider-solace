@@ -77,6 +77,7 @@ func providerResources() map[string]*schema.Resource {
 		RSRC_TOPIC_ENDPOINT:        resourceTopicEndpoint(), // @see topic_endpoint.go
 		RSRC_CLIENT_USERNAME:       resourceClientUsername(),// @see client_username.go
 		RSRC_CLIENT_PROFILE:        resourceClientProfile(), // @see client_profile.go
+		RSRC_ACL_PROFILE:           resourceAclProfile(),    // @see acl_profile.go
 		RSRC_MSG_VPN_BRIDGE:        resourceMsgVpnBridge(),  // @see msg_vpn_bridge.go
 		RSRC_VPN_BRIDGE_REMOTE_VPN: resourceMsgVpnBridgeRemoteVpn(), // @see msg_vpn_bridge_remote_vpn.go
 	}

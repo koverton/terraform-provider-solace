@@ -12,6 +12,7 @@ const RSRC_QUEUE                 string = "solace_queue"
 const RSRC_TOPIC_ENDPOINT        string = "solace_topic_endpoint"
 const RSRC_CLIENT_USERNAME       string = "solace_client_username"
 const RSRC_CLIENT_PROFILE        string = "solace_client_profile"
+const RSRC_ACL_PROFILE           string = "solace_acl_profile"
 const RSRC_MSG_VPN_BRIDGE        string = "solace_msg_vpn_bridge"
 const RSRC_VPN_BRIDGE_REMOTE_VPN string = "solace_msg_vpn_bridge_remote_vpn"
 
@@ -132,6 +133,15 @@ const CLIENT_USERNAME string = "client_username"
 const GUARANTEED_ENDPOINT_PERMISSION_OVERRIDE_ENABLED string = "guaranteed_endpoint_permission_override_enabled"
 const PASSWORD string = "password"
 const SUBSCRIPTION_MANAGER_ENABLED string = "subscription_manager_enabled"
+
+
+// Unique ACL-Profile Fields
+const CLIENT_CONNECT_DEFAULT_ACTION string = "client_connect_default_action"
+const PUBLISH_TOPIC_DEFAULT_ACTION string = "publish_topic_default_action"
+const SUBSCRIBE_TOPIC_DEFAULT_ACTION string = "subscribe_topic_default_action"
+const ACL_CONNECT_EXCEPTION_LIST string = "acl_connect_exception_list"
+const ACL_PUBLISH_EXCEPTION_LIST string = "acl_publish_exception_list"
+const ACL_SUBSCRIBE_EXCEPTION_LIST string = "acl_subscribe_exception_list"
 
 
 // Unique Client-Profile Fields
