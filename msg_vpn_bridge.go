@@ -91,7 +91,7 @@ func populateMsgVpnBridgeFromResource(bridge *semp_client.MsgVpnBridge, d *schem
 	}
 	v,b = d.GetOk(MAX_TTL)
 	if b {
-		bridge.MaxTtl = v.(int64)
+		bridge.MaxTtl = int64(v.(int))
 	}
 	v,b = d.GetOk(REMOTE_AUTHENTICATION_SCHEME)
 	if b {
@@ -99,11 +99,11 @@ func populateMsgVpnBridgeFromResource(bridge *semp_client.MsgVpnBridge, d *schem
 	}
 	v,b = d.GetOk(REMOTE_CONNECTION_RETRY_COUNT)
 	if b {
-		bridge.RemoteConnectionRetryCount = v.(int64)
+		bridge.RemoteConnectionRetryCount = int64(v.(int))
 	}
 	v,b = d.GetOk(REMOTE_CONNECTION_RETRY_DELAY)
 	if b {
-		bridge.RemoteConnectionRetryDelay = v.(int64)
+		bridge.RemoteConnectionRetryDelay = int64(v.(int))
 	}
 	v,b = d.GetOk(REMOTE_DELIVER_TO_ONE_PRIORITY)
 	if b {

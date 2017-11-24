@@ -15,10 +15,11 @@ Solace entity types:
 - ACL Profiles
 - Client Usernames
 - VPN-Bridges and bridge Remote-VPNs
+- JNDI conn-factories, queues and topics
 
 Some things it can _not_ do yet:
 - Set or update alerting thresholds on any entity type
-- All other entities: REST delivery points, JMS entities, MQTT sessions, etc.
+- All other entities: REST delivery points, other JMS entities, MQTT sessions, etc.
 
 ## Configuring the Provider
 

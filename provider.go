@@ -67,19 +67,22 @@ func providerSchema() map[string]*schema.Schema {
 	}
 }
 
-// List of supported resources and their configuration fields.
+// List of supported resources and their resource configurations.
 // Each resource's complete definition is contained in a separate <resource>.go code file.
 func providerResources() map[string]*schema.Resource {
 	log.Printf("Returning Solace Provider Resources Definition")
 	return map[string]*schema.Resource{
-		RSRC_MSG_VPN:               resourceMsgVpn(),        // @see msg_vpn.go
-		RSRC_QUEUE:                 resourceQueue(),         // @see queue.go
-		RSRC_TOPIC_ENDPOINT:        resourceTopicEndpoint(), // @see topic_endpoint.go
-		RSRC_CLIENT_USERNAME:       resourceClientUsername(),// @see client_username.go
-		RSRC_CLIENT_PROFILE:        resourceClientProfile(), // @see client_profile.go
-		RSRC_ACL_PROFILE:           resourceAclProfile(),    // @see acl_profile.go
-		RSRC_MSG_VPN_BRIDGE:        resourceMsgVpnBridge(),  // @see msg_vpn_bridge.go
+		RSRC_MSG_VPN:               resourceMsgVpn(),                // @see msg_vpn.go
+		RSRC_QUEUE:                 resourceQueue(),                 // @see queue.go
+		RSRC_TOPIC_ENDPOINT:        resourceTopicEndpoint(),         // @see topic_endpoint.go
+		RSRC_CLIENT_USERNAME:       resourceClientUsername(),        // @see client_username.go
+		RSRC_CLIENT_PROFILE:        resourceClientProfile(),         // @see client_profile.go
+		RSRC_ACL_PROFILE:           resourceAclProfile(),            // @see acl_profile.go
+		RSRC_MSG_VPN_BRIDGE:        resourceMsgVpnBridge(),          // @see msg_vpn_bridge.go
 		RSRC_VPN_BRIDGE_REMOTE_VPN: resourceMsgVpnBridgeRemoteVpn(), // @see msg_vpn_bridge_remote_vpn.go
+		RSRC_JNDI_CONN_FACTORY:     resourceJndiConnectionFactory(), // @see jndi_conn_factory.go
+		RSRC_JNDI_QUEUE:            resourceJndiQueue(),             // @see jndi_queue.go
+		RSRC_JNDI_TOPIC:            resourceJndiTopic(),             // @see jndi_topic.go
 	}
 }
 
@@ -102,7 +105,7 @@ func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 
 	state := ProviderState{
 		sempcfg: cfg,
-		host: host,
+		host: host,  // this is used to help create unique IDs for each resource [host]+[vpn]+[typ]+[name]
 	}
 
 	return &state, nil

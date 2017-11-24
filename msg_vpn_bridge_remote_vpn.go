@@ -127,11 +127,11 @@ func populateMsgVpnBridgeRemoteVpnFromResource(remote *semp_client.MsgVpnBridgeR
 	}
 	v,b = d.GetOk(CONNECT_ORDER)
 	if b {
-		remote.ConnectOrder = v.(int32)
+		remote.ConnectOrder = int32(v.(int))
 	}
 	v,b = d.GetOk(EGRESS_FLOW_WINDOW_SIZE)
 	if b {
-		remote.EgressFlowWindowSize = v.(int64)
+		remote.EgressFlowWindowSize = int64(v.(int))
 	}
 	v,b = d.GetOk(ENABLED)
 	if b {
