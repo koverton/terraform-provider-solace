@@ -33,6 +33,9 @@ user with administrative privileges:
 - __admin_user__: the administrative user to authenticate as for the management session
 - __admin_password__: the administrative user's credentials for the management session
 
+NOTE: This means that an administrative user must be provisioned on the Solace router before the Terraform provider 
+can do anything with it.
+
 ## Leveraging SEMPv2 Swagger Clients
 
 [SEMPv2 is a Swagger-based API](https://github.com/koverton/semp_client) that supports code-generated client 
@@ -79,8 +82,10 @@ $GOPATH/
                     msg_vpn_api.go
                     ...
 ```
+Note that the code for each resource type imports that `semp_client`. 
+If you branch it into your github environment you will need to update all those import statements.
 
-With that in place, building running the provider is as follows:
+With that in place, steps to build and run the provider are as follows:
 
 ```shell
 linux> make
