@@ -24,14 +24,17 @@ Some things it can _not_ do yet:
 ## Configuring the Provider
 
 The Solace Provider connects to an existing Solace Message Broker to provision 
-entities on that Broker. The properties required for this are those  
-properties required to connect to the SEMP port and authenticate as a 
-user with administrative privileges:
+entities on that Broker. The properties required for this are those properties 
+required to connect to the SEMP port and authenticate as a user with administrative 
+privileges:
 
 - __hostname__: the message broker's management address or hostname (NOTE: for hardware brokers, the management interface is different than the data interface)
 - __port__: the message broker's management semp management port (typically 8080 for VMRs or 80 for hardware)
 - __admin_user__: the administrative user to authenticate as for the management session
 - __admin_password__: the administrative user's credentials for the management session
+
+NOTE: This means that an administrative user must be provisioned on the Solace router before the Terraform provider 
+can do anything with it.
 
 ## Leveraging SEMPv2 Swagger Clients
 
@@ -79,8 +82,10 @@ $GOPATH/
                     msg_vpn_api.go
                     ...
 ```
+Note that the code for each resource type imports that `semp_client`. 
+If you branch it into your github environment you will need to update all those import statements.
 
-With that in place, building running the provider is as follows:
+With that in place, steps to build and run the provider are as follows:
 
 ```shell
 linux> make
