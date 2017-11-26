@@ -272,7 +272,7 @@ func readQueueFunc(d *schema.ResourceData, meta interface{}) error {
 
 	q, _, err := semp_client.QueueApi {
 			Configuration:state.sempcfg,
-		}.GetMsgVpnQueue(d.Get(QUEUE_NAME).(string), d.Get(MSG_VPN_NAME).(string), nil)
+		}.GetMsgVpnQueue(d.Get(QUEUE_NAME).(string), d.Get(MSG_VPN_NAME).(string), []string { "*" })
 
 	if err != nil {
 		log.Println("QueueApi.GetMsgVpnQueue ERROR")

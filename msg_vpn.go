@@ -729,7 +729,7 @@ func readMsgVpnFunc(d *schema.ResourceData, meta interface{}) error {
 
 	resp, _, err := semp_client.MsgVpnApi {
 		Configuration:state.sempcfg,
-	}.GetMsgVpn(d.Get(MSG_VPN_NAME).(string), nil)
+	}.GetMsgVpn(d.Get(MSG_VPN_NAME).(string), []string { "*" })
 
 	if err != nil {
 		log.Println("MsgVpnApi.GetMsgVpn ERROR")

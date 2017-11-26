@@ -416,7 +416,7 @@ func readClientProfileFunc(d *schema.ResourceData, meta interface{}) error {
 
 	resp, _, err := semp_client.ClientProfileApi {
 			Configuration:state.sempcfg,
-		}.GetMsgVpnClientProfile(d.Get(MSG_VPN_NAME).(string), d.Get(CLIENT_PROFILE_NAME).(string), nil)
+		}.GetMsgVpnClientProfile(d.Get(MSG_VPN_NAME).(string), d.Get(CLIENT_PROFILE_NAME).(string), []string { "*" })
 
 	if err != nil {
 		log.Println("ClientProfileApi.GetMsgVpnClientProfile ERROR")

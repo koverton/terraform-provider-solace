@@ -161,7 +161,7 @@ func readMsgVpnBridgeFunc(d *schema.ResourceData, meta interface{}) error {
 
 	resp, _, err := semp_client.BridgeApi {
 			Configuration:state.sempcfg,
-		}.GetMsgVpnBridge(d.Get(MSG_VPN_NAME).(string), d.Get(BRIDGE_NAME).(string), d.Get(BRIDGE_VIRTUAL_ROUTER).(string), nil)
+		}.GetMsgVpnBridge(d.Get(MSG_VPN_NAME).(string), d.Get(BRIDGE_NAME).(string), d.Get(BRIDGE_VIRTUAL_ROUTER).(string), []string { "*" })
 
 	if err != nil {
 		log.Println("BridgeApi.GetMsgVpnBridge ERROR")

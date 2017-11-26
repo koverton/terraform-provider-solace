@@ -104,7 +104,7 @@ func readJndiTopicFunc(d *schema.ResourceData, meta interface{}) error {
 
 	resp, _, err := semp_client.JndiApi {
 		Configuration:state.sempcfg,
-	}.GetMsgVpnJndiTopic(d.Get(MSG_VPN_NAME).(string), d.Get(TOPIC_NAME).(string), nil)
+	}.GetMsgVpnJndiTopic(d.Get(MSG_VPN_NAME).(string), d.Get(TOPIC_NAME).(string), []string { "*" })
 
 	if err != nil {
 		log.Println("JndiTopicApi.GetMsgVpnJndiTopic ERROR")

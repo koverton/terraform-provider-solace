@@ -219,7 +219,7 @@ func readMsgVpnBridgeRemoteVpnFunc(d *schema.ResourceData, meta interface{}) err
 			d.Get(REMOTE_MSG_VPN_NAME).(string),
 			d.Get(REMOTE_MSG_VPN_LOCATION).(string),
 			d.Get(REMOTE_MSG_VPN_INTERFACE).(string),
-			nil)
+			[]string { "*" })
 
 	if err != nil {
 		log.Println("BridgeApi.GetMsgVpnBridgeRemoteMsgVpn ERROR")

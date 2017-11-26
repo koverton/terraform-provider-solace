@@ -104,7 +104,7 @@ func readJndiQueueFunc(d *schema.ResourceData, meta interface{}) error {
 
 	resp, _, err := semp_client.JndiApi {
 		Configuration:state.sempcfg,
-	}.GetMsgVpnJndiQueue(d.Get(MSG_VPN_NAME).(string), d.Get(QUEUE_NAME).(string), nil)
+	}.GetMsgVpnJndiQueue(d.Get(MSG_VPN_NAME).(string), d.Get(QUEUE_NAME).(string), []string { "*" })
 
 	if err != nil {
 		log.Println("JndiQueueApi.GetMsgVpnJndiQueue ERROR")

@@ -144,7 +144,7 @@ func readClientUsernameFunc(d *schema.ResourceData, meta interface{}) error {
 
 	userresp, _, err := semp_client.ClientUsernameApi {
 			Configuration:state.sempcfg,
-		}.GetMsgVpnClientUsername(d.Get(MSG_VPN_NAME).(string), d.Get(CLIENT_USERNAME).(string), nil)
+		}.GetMsgVpnClientUsername(d.Get(MSG_VPN_NAME).(string), d.Get(CLIENT_USERNAME).(string), []string { "*" })
 
 	if err != nil {
 		log.Println("ClientUsernameApi.GetMsgVpnClientUsername ERROR")

@@ -189,7 +189,7 @@ func readAclProfileFunc(d *schema.ResourceData, meta interface{}) error {
 
 	resp, _, err := semp_client.AclProfileApi {
 			Configuration:state.sempcfg,
-		}.GetMsgVpnAclProfile(d.Get(MSG_VPN_NAME).(string), d.Get(ACL_PROFILE_NAME).(string), nil)
+		}.GetMsgVpnAclProfile(d.Get(MSG_VPN_NAME).(string), d.Get(ACL_PROFILE_NAME).(string), []string { "*" })
 
 	if err != nil {
 		log.Println("AclProfileApi.GetMsgVpnAclProfile ERROR")

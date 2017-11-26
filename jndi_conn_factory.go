@@ -392,7 +392,7 @@ func readJndiConnectionFactoryFunc(d *schema.ResourceData, meta interface{}) err
 
 	userresp, _, err := semp_client.JndiApi {
 		Configuration:state.sempcfg,
-	}.GetMsgVpnJndiConnectionFactory(d.Get(MSG_VPN_NAME).(string), d.Get(CONNECTION_FACTORY_NAME).(string), nil)
+	}.GetMsgVpnJndiConnectionFactory(d.Get(MSG_VPN_NAME).(string), d.Get(CONNECTION_FACTORY_NAME).(string), []string { "*" })
 
 	if err != nil {
 		log.Println("JndiApi.GetMsgVpnJndiConnectionFactory ERROR")
